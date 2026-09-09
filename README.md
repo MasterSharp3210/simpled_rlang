@@ -8,3 +8,6 @@ simpled_rlang = { path = "../simpled_rlang" }**
 
 # In your project
 For example, there is a soft syntax: **let input: u32 = read()**. For the ANSII codes we have for example: **println("Hello, world!".Bold())**
+
+# If you have any problem
+If you have any problem create immediately an issue on the repo
