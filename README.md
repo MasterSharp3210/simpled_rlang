@@ -1,13 +1,67 @@
 # simpled_rlang
-simpled_rlang is a common library that makes handling input reading and ANSI escape codes much simpler in Rust.
 
-# How to use
-To use this library you have to download the master project and copy the directory next your project. Than, in your main cargo toml file, you have to write this string:
-**[dependencies]
-simpled_rlang = { path = "../simpled_rlang" }**
+`simpled_rlang` is a lightweight Rust library designed to simplify terminal input reading, thread sleeping, and ANSI text styling with minimal boilerplate.
 
-# In your project
-For example, there is a soft syntax: **let input: u32 = read()**. For the ANSII codes we have for example: **println("Hello, world!".Bold())**
+---
 
-# If you have any problem
-If you have any problem create immediately an issue on the repo
+## Installation
+
+To use this library in your Rust project, clone or copy the `simpled_rlang` directory into a location adjacent to your project (or within your workspace). 
+
+Then, add the path dependency to your project's `Cargo.toml`:
+
+```toml
+[dependencies]
+simpled_rlang = { path = "../simpled_rlang" }
+```
+
+---
+
+## Usage Guide
+
+By importing the prelude at the top of your file, all core features—reading input, thread sleeping, and ANSI styling—become immediately available.
+
+```rust
+use simpled_rlang::prelude::*;
+
+fn main() {
+    // 1. ANSI Styling on strings
+    println!("{}", "Hello, world!".bold().green());
+    println!("{}", "Warning message".yellow().italic());
+
+    // 2. Thread Sleep (in milliseconds)
+    println!("Waiting for 1 second...");
+    sleep(1000);
+
+    // 3. Simple Terminal Input Reading
+    println!("{}", "Please enter your name:".cyan());
+    let name = read();
+
+    println!("{}", format!("Welcome, {}!", name).bold().magenta());
+}
+```
+
+---
+
+## Direct Usage (Without Prelude Import)
+
+If you prefer calling functions directly from the crate name without importing traits:
+
+```rust
+fn main() {
+    // Thread Sleep
+    simpled_rlang::sleep(500);
+
+    // Terminal Input
+    let input = simpled_rlang::read();
+
+    // ANSI Styling via style helper
+    println!("{}", simpled_rlang::style("Styled Text").bold().red());
+}
+```
+
+---
+
+## Issues & Support
+
+If you encounter any bugs, have questions, or want to suggest new features, please open an issue directly on the repository!
