@@ -3,7 +3,6 @@ mod simple_read;
 mod sleep_thread;
 mod style;
 
-
 pub use colors::Color;
 pub use style::{AnsiStyle, Styled};
 
