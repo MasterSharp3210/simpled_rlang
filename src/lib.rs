@@ -1,10 +1,12 @@
 mod colors;
+mod get_address;
 mod simple_read;
 mod sleep_thread;
 mod style;
 
 pub use colors::Color;
 pub use style::{AnsiStyle, Styled};
+pub use get_address::{get_address, print_address};
 
 pub fn sleep(ms: u64) {
     sleep_thread::sleep(ms);
@@ -27,5 +29,5 @@ pub fn style(text: impl Into<String>) -> Styled {
 }
 
 pub mod prelude {
-    pub use crate::{ansi256, read, rgb, sleep, style, AnsiStyle, Color, Styled};
+    pub use crate::{ansi256, get_address, print_address, read, rgb, sleep, style, AnsiStyle, Color, Styled};
 }
