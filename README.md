@@ -29,11 +29,16 @@ fn main() {
     println!("{}", "Hello, world!".bold().green());
     println!("{}", "Warning message".yellow().italic());
 
-    // 2. Thread Sleep (in milliseconds)
+    // 2. Get Addresses
+    let x: i32 = 5;
+    let mut address = get_address(&x);
+    print_address(&x);
+
+    // 3. Thread Sleep (in milliseconds)
     println!("Waiting for 1 second...");
     sleep(1000);
 
-    // 3. Simple Terminal Input Reading
+    // 4. Simple Terminal Input Reading
     println!("{}", "Please enter your name:".cyan());
     let name = read();
 
@@ -49,6 +54,11 @@ If you prefer calling functions directly from the crate name without importing t
 
 ```rust
 fn main() {
+    // Get Addresses
+    let x: i32 = 5;
+    let mut address = simpled_rlang::get_address(&x);
+    simpled_rlang::print_address(&x);
+    
     // Thread Sleep
     simpled_rlang::sleep(500);
 
