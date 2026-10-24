@@ -1,26 +1,9 @@
-mod colors;
-mod simple_read;
-mod style;
+use std::io::{self};
 
-pub use colors::Color;
-pub use simple_read::read;
-pub use style::{AnsiStyle, Styled};
-
-pub const fn rgb(r: u8, g: u8, b: u8) -> Color {
-    Color::Rgb(r, g, b)
-}
-
-pub const fn ansi256(value: u8) -> Color {
-    Color::Ansi256(value)
-}
-
-pub mod prelude {
-    pub use crate::{
-        ansi256,
-        read,
-        rgb,
-        AnsiStyle,
-        Color,
-        Styled,
-    };
+pub fn read() -> String {
+    let mut input = String::new();
+    if io::stdin().read_line(&mut input).is_err() {
+        return String::new();
+    }
+    input
 }
