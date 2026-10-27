@@ -3,6 +3,7 @@ mod get_address;
 mod simple_read;
 mod sleep_thread;
 mod style;
+mod win_console;
 
 pub use colors::Color;
 pub use style::{AnsiStyle, Styled};
